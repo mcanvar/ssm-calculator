@@ -1,24 +1,29 @@
-const webpack = require("webpack");
-const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
-const srcDir = path.join(__dirname, "..", "src");
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+import CopyPlugin from 'copy-webpack-plugin';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const srcDir = join(__dirname, "..", "src");
+
+export const isChromium = process.argv.indexOf('CHROMIUM') > -1;
+
+export default {
     entry: {
-      popup: path.join(srcDir, 'popup.tsx'),
-      options: path.join(srcDir, 'options.tsx'),
-      background: path.join(srcDir, 'background.ts'),
-      content_script: path.join(srcDir, 'content_script.tsx'),
+        popup: join(srcDir, 'popup.tsx'),
+        options: join(srcDir, 'options.tsx'),
+        background: join(srcDir, 'background.ts'),
+        content_script: join(srcDir, 'content_script.tsx'),
     },
     output: {
-        path: path.join(__dirname, "../dist/js"),
+        path: join(__dirname, "../dist/js"),
         filename: "[name].js",
     },
     optimization: {
         splitChunks: {
             name: "vendor",
             chunks(chunk) {
-              return chunk.name !== 'background';
+                return chunk.name !== 'background';
             }
         },
     },
@@ -29,6 +34,16 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
         ],
     },
     resolve: {
@@ -36,8 +51,15 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ from: ".", to: "../", context: "public" }],
-            options: {},
+            patterns: [
+                {from: "icon.png", to: "../", context: "public"},
+                {
+                    from: isChromium ? "manifest-v3.json" : "manifest-v2.json",
+                    to: "../manifest.json",
+                    context: "public"
+                },
+                {from: "popup.html", to: "../", context: "public"}
+            ]
         }),
     ],
-};
+}
