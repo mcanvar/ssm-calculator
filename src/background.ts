@@ -1,6 +1,5 @@
-function polling() {
-  // console.log("polling");
-  setTimeout(polling, 1000 * 30);
-}
+export const logCurrentColor = (): string => {
+  // TODO: Implement async local color call
 
-polling();
+  return '#000000'
+}
