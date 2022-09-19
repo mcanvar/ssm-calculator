@@ -58,7 +58,8 @@ export default {
                     to: "../manifest.json",
                     context: "public"
                 },
-                {from: "popup.html", to: "../", context: "public"}
+                {from: "popup.html", to: "../", context: "public"},
+                {from: "options.html", to: "../", context: "public"}
             ]
         }),
     ],

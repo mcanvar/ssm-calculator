@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "name": "React TS starter for browser extensions",
-  "description": "Chrome Extension, TypeScript, React",
+  "description": "Chrome Extension, TypeScript, React, Cross-platform",
   "version": "1.0.0",
 
   "background": {
@@ -20,16 +20,13 @@
 
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://*/*"],
       "js": ["js/vendor.js", "js/content_script.js"]
     }
   ],
 
   "permissions": [
-    "storage"
-  ],
-
-  "host_permissions": [
-    "<all_urls>"
+    "storage",
+    "tabs"
   ]
 }
