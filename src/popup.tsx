@@ -3,17 +3,13 @@ import ReactDOM from "react-dom";
 import browser from "webextension-polyfill";
 
 const Popup = () => {
-    const [count, setCount] = useState(0);
-    const [currentURL, setCurrentURL] = useState<string>();
+    const [color, setColor] = useState('#000000');
 
     useEffect(() => {
-        // browser.action.setBadgeText({ text: count.toString() });
-    }, [count]);
-
-    useEffect(() => {
-        browser.tabs.query({active: true, currentWindow: true})
-            .then(tabs => setCurrentURL(tabs[0].url))
+        browser.storage.local.get(['favoriteColor'])
+            .then(({favoriteColor}) => setColor(favoriteColor))
     }, []);
+
 
     const changeBackground = () => {
         browser.tabs.query({active: true, currentWindow: true})
@@ -23,7 +19,7 @@ const Popup = () => {
                     browser.tabs.sendMessage(
                         tab.id,
                         {
-                            color: "#555555",
+                            color,
                         }
                     ).then((msg) => console.log("result message:", msg))
                 }
@@ -31,19 +27,9 @@ const Popup = () => {
     };
 
     return (
-        <>
-            <ul style={{minWidth: "700px"}}>
-                <li>Current URL: {currentURL}</li>
-                <li>Current Time: {new Date().toLocaleTimeString()}</li>
-            </ul>
-            <button
-                onClick={() => setCount(count + 1)}
-                style={{marginRight: "5px"}}
-            >
-                count up
-            </button>
+        <div style={{padding: '10px', backgroundColor: color}}>
             <button onClick={changeBackground}>change background</button>
-        </>
+        </div>
     );
 };
 

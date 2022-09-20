@@ -1,11 +1,7 @@
 // TODO
-promise polyfill support
 readme edit
-implement a good use case includes bg and opts. work
 update icon
-update names on jsons and package, add github link
-write example tests
-check exceptions
+check final exceptions
 
 
 # Chrome Extension TypeScript Starter
