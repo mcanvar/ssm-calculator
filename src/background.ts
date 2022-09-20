@@ -1,5 +1,8 @@
-export const logCurrentColor = (): string => {
-  // TODO: Implement async local color call
+import browser from "webextension-polyfill";
 
-  return '#000000'
+const logFavoriteColor = (): void => {
+  browser.storage.local.get(['favoriteColor'])
+      .then(({favoriteColor} )=> console.log('Favorite color is: ' + favoriteColor))
 }
+
+logFavoriteColor()

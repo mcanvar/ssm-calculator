@@ -1,9 +1,14 @@
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-  if (msg.color) {
-    console.log("Receive color = " + msg.color);
-    document.body.style.backgroundColor = msg.color;
-    sendResponse("Change color to " + msg.color);
-  } else {
-    sendResponse("Color message is none.");
-  }
-});
+import browser from "webextension-polyfill";
+
+browser.runtime.onMessage.addListener(
+    async (data, sender) => {
+      if (data.color) {
+        console.log("Receive color = " + data.color);
+        document.body.style.backgroundColor = data.color;
+
+        return "Change color to " + data.color;
+      }
+
+      return "Color message is none.";
+    }
+)
