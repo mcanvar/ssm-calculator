@@ -1,6 +1,6 @@
 # React TS starter for extensions
 
-__A Cross-platform React TS starter for browser extensions.__
+**A Cross-platform React TS starter for browser extensions.**
 
 ![build](https://github.com/mcanvar/react-ts-starter-for-extensions/workflows/build/badge.svg)
 
@@ -24,24 +24,25 @@ There are a couple of problems when we decide to develop an extension for the mo
 
 ## Prerequisites
 
-* Already installed Firefox or Chrome browser
-* [node + npm](https://nodejs.org/)
-* [web-ext](https://github.com/mozilla/web-ext) (Included as dependency of it's webpack extension)
+- Already installed Firefox or Chrome browser
+- [node + npm](https://nodejs.org/)
+- [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) (Included as dependency of it's webpack extension)
 
 ## Includes the following
 
-* TypeScript
-* Webpack
-* React
-* Jest
-* Example Code Includes:
-    * background.js
-    * Options page
-    * Content script
-    * Pop-up
-    * [Storage API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)
-    * [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
-    * [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill)
+- TypeScript
+- Webpack
+- React
+- Jest
+- Example Code Includes:
+  - background.js
+  - Options page
+  - Content script
+  - Pop-up
+  - [Storage API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)
+  - [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
+  - [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill)
+    - [web-ext & Its WebPack Plugin](https://github.com/mozilla/web-ext)
 
 ## Project Structure
 
@@ -78,7 +79,7 @@ npm install
 
 ## Build in watch mode
 
-### For running firefox with Manifest v2
+### For running Firefox with Manifest v2
 
 ```
 npm run watch
@@ -117,6 +118,13 @@ at [mockzilla](https://lusito.github.io/mockzilla-webextension/setup.html).
 
 `npx jest` or `npm run test`
 
+## Deep diving
+
+You might want to check out `web-ext` CLI documentation in order to experience
+further settings. You can run the extension with any version of browsers,
+or passing different folder setups. You can even test Manifest V3 on Firefox by
+passing `firefoxPreview`option with`'mv3'` value on webpack config.
+
 ## Big thanks
 
 - For inspiring me, [@chibat](https://github.com/chibat/chrome-extension-typescript-starter)
@@ -128,9 +136,8 @@ at [mockzilla](https://lusito.github.io/mockzilla-webextension/setup.html).
 If you ever think that something useful can be added, please do not
 hesitate to open a PR with a new branch.
 
-## In case you want to support me, or contact me 
+## In case you want to support me, or contact me
 
 <a href="https://www.buymeacoffee.com/roniemartinez" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
 
 You can always find me on Twitter DM.
