@@ -71,52 +71,58 @@ There are a couple of problems when we decide to develop an extension for the mo
 Feel free to remove the parts that you do not need and
 then edit the webpack config files.
 
-## Setup
+## Setup & Usage
+
+#### Installing dependencies:
 
 ```
 npm install
 ```
 
-## Build in watch mode
+### Build in watch mode
 
-### For running Firefox with Manifest v2
+#### For running Firefox with Manifest v2:
 
 ```
 npm run watch
 ```
 
-### For running Chromium based browsers with Manifest v3
+#### For running Chrome with Manifest v3:
 
 ```
 npm run watch:c
 ```
 
-## Building for production
+### Building for production
 
-### Building for Firefox with Manifest v2
+#### For Firefox with Manifest v2:
 
 ```
 npm run build
 ```
 
-### Building for Chromium based browsers with Manifest v3
+#### For Chrome with Manifest v3:
 
 ```
 npm run build:c
 ```
 
-## To clean `dist` folder
+### Cleaning & Testing
+
+#### To clean `dist` folder:
 
 ```
 npm run clean
 ```
 
-## Testing
+#### To test:
+
+```
+npm run test
+```
 
 To further testing, you might want to have a look
 at [mockzilla](https://lusito.github.io/mockzilla-webextension/setup.html).
-
-`npx jest` or `npm run test`
 
 ## Deep diving
 
@@ -140,4 +146,4 @@ hesitate to open a PR with a new branch.
 
 <a href="https://www.buymeacoffee.com/roniemartinez" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-You can always find me on Twitter DM.
+You can always text me via Twitter DM.
