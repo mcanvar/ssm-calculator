@@ -42,7 +42,7 @@ There are a couple of problems when we decide to develop an extension for the mo
   - [Storage API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)
   - [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
   - [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill)
-    - [web-ext & Its WebPack Plugin](https://github.com/mozilla/web-ext)
+  - [web-ext & Its WebPack Plugin](https://github.com/mozilla/web-ext)
 
 ## Project Structure
 
