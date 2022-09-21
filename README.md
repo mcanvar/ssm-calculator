@@ -54,6 +54,8 @@ There are a couple of problems when we decide to develop an extension for the mo
   │   └── ... # Static files
   ├── src
   │   ├── __tests__ # Jest tests folder
+  │   ├── types # TS Types folder
+  │   ├── utils # Utility codes folder
   │   ├── background.ts # Extension's background file
   │   ├── content_script.ts # The script will be injected to the page
   │   ├── options.ts # Extension's settings page
