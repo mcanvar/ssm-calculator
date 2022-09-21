@@ -1,21 +1,32 @@
-// TODO
-readme edit
-check final exceptions
+# React TS starter for extensions
 
+__A Cross-platform React TS starter for browser extensions.__
 
-# Chrome Extension TypeScript Starter
+![build](https://github.com/mcanvar/react-ts-starter-for-extensions/workflows/build/badge.svg)
 
-![build](https://github.com/chibat/chrome-extension-typescript-starter/workflows/build/badge.svg)
+## Description
 
-Chrome Extension, TypeScript and Visual Studio Code
+This template is prepared for making cross-platform extension
+development in a single React Project with ease. It is also using a browser
+polyfill to match the API codebase and use them as Promises. During the
+development you can build your extension automatically via WebPack and
+thanks to `web-ext` it can reload it by watching the changes.
+
+## Why?
+
+There are a couple of problems when we decide to develop an extension for the most common browsers:
+
+- We cannot use Manifest V3 yet in Firefox except by turning on the developer preview
+  manually. [see here](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/).
+- All the Chrome APIs do not yet support Promise-based approaches.
+- During the development, we need to reload extension every time we update the codes.
+- Packing the bundles and getting the extension ready for publishing can be time-consuming.
 
 ## Prerequisites
 
-* [node + npm](https://nodejs.org/) (Current Version)
-
-## Option
-
-* [Visual Studio Code](https://code.visualstudio.com/)
+* Already installed Firefox or Chrome browser
+* [node + npm](https://nodejs.org/)
+* [web-ext](https://github.com/mozilla/web-ext) (Included as dependency of it's webpack extension)
 
 ## Includes the following
 
@@ -23,19 +34,39 @@ Chrome Extension, TypeScript and Visual Studio Code
 * Webpack
 * React
 * Jest
-* Example Code
-    * Chrome Storage
-    * Options Version 2
-    * content script
-    * count up badge number
-    * background
+* Example Code Includes:
+    * background.js
+    * Options page
+    * Content script
+    * Pop-up
+    * [Storage API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)
+    * [Tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
+    * [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill)
 
 ## Project Structure
 
-* src/typescript: TypeScript source files
-* src/assets: static files
-* dist: Chrome Extension directory
-* dist/js: Generated JavaScript files
+```yaml
+/react-ts-starter-for-extensions
+  ├── dist
+  │   ├── js # Generated code bundles
+  │   └── ...
+  ├── public
+  │   └── ... # Static files
+  ├── src
+  │   ├── __tests__ # Jest tests folder
+  │   ├── background.ts # Extension's background file
+  │   ├── content_script.ts # The script will be injected to the page
+  │   ├── options.ts # Extension's settings page
+  │   └── popup.ts # Extension's pop-up page
+  ├── webpack
+  │   ├── webpack.common.js # Common tasks
+  │   ├── webpack.dev.js # Dev related tasks
+  │   └── webpack.prod.js # Prod related tasks
+...
+```
+
+Feel free to remove the parts that you do not need and
+then edit the webpack config files.
 
 ## Setup
 
@@ -43,33 +74,61 @@ Chrome Extension, TypeScript and Visual Studio Code
 npm install
 ```
 
-## Import as Visual Studio Code project
-
-...
-
-## Build
-
-```
-npm run build
-```
-
 ## Build in watch mode
 
-### terminal
+### For running firefox with Manifest v2
 
 ```
 npm run watch
 ```
 
-### Visual Studio Code
+### For running Chromium based browsers with Manifest v3
 
-Run watch mode.
+```
+npm run watch:c
+```
 
-type `Ctrl + Shift + B`
+## Building for production
 
-## Load extension to chrome
+### Building for Firefox with Manifest v2
 
-Load `dist` directory
+```
+npm run build
+```
 
-## Test
+### Building for Chromium based browsers with Manifest v3
+
+```
+npm run build:c
+```
+
+## To clean `dist` folder
+
+```
+npm run clean
+```
+
+## Testing
+
+To further testing, you might want to have a look
+at [mockzilla](https://lusito.github.io/mockzilla-webextension/setup.html).
+
 `npx jest` or `npm run test`
+
+## Big thanks
+
+- For inspiring me, [@chibat](https://github.com/chibat/chrome-extension-typescript-starter)
+- For making this possible via amazing tools, Mozilla's Teams and Contributors
+- For automatizing, WebPack
+
+## Contribution
+
+If you ever think that something useful can be added, please do not
+hesitate to open a PR with a new branch.
+
+## In case you want to support me, or contact me 
+
+<a href="https://www.buymeacoffee.com/roniemartinez" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
+
+You can always find me on Twitter DM.

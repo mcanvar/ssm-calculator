@@ -13,6 +13,7 @@
     "watch": "npm run watch:f",
     "watch:f": "webpack --config webpack/webpack.dev.js --watch",
     "watch:c": "webpack --config webpack/webpack.dev.js --watch --env CHROMIUM",
+    "build": "npm run build:f",
     "build:f": "webpack --config webpack/webpack.prod.js",
     "build:c": "webpack --config webpack/webpack.prod.js  --env CHROMIUM",
     "clean": "rimraf dist",
