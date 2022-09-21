@@ -73,6 +73,8 @@ then edit the webpack config files.
 
 ## Setup & Usage
 
+Press "Use this template" button above and then clone the project on your local.
+
 #### Installing dependencies:
 
 ```
