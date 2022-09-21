@@ -1,17 +1,15 @@
-import browser from "webextension-polyfill";
+import browser from 'webextension-polyfill'
 
 const logFavoriteColor = (): void => {
   browser.storage.local
-    .get(["favoriteColor"])
-    .then(({ favoriteColor }) =>
-      console.log("Favorite color is: " + favoriteColor)
-    );
-};
+    .get(['favoriteColor'])
+    .then(({ favoriteColor }) => console.log('Favorite color is: ' + favoriteColor))
+}
 
-setTimeout(() => logFavoriteColor(), 1000);
+setTimeout(() => logFavoriteColor(), 1000)
 
 browser.runtime.onInstalled.addListener(() =>
   browser.storage.local.set({
-    favoriteColor: "#000000",
+    favoriteColor: '#000000'
   })
-);
+)
