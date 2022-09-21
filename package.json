@@ -18,8 +18,10 @@
     "build:c": "webpack --config webpack/webpack.prod.js  --env CHROMIUM",
     "clean": "rimraf dist",
     "test": "npx jest",
-    "style": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown \"src/**/*.{ts,tsx}\""
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
@@ -35,6 +37,7 @@
     "glob": "^7.1.6",
     "husky": "^8.0.1",
     "jest": "^27.2.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
