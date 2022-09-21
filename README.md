@@ -1,6 +1,5 @@
 // TODO
 readme edit
-update icon
 check final exceptions
 
 
