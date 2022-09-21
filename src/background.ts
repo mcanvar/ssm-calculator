@@ -1,5 +1,4 @@
 import browser from 'webextension-polyfill'
-import { isChrome, isFirefox } from './utils/platform'
 
 const logFavoriteColor = (): void => {
   browser.storage.local

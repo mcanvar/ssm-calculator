@@ -1,7 +1,7 @@
 import browser from 'webextension-polyfill'
 
 /*
-Some useful utils in case facing of browser related APIs such as Chrome setBadgeText API.
+    Some useful utils in case facing of browser specific APIs.
  */
 
 export const isChrome: boolean = browser.runtime.getURL('').startsWith('chrome-extension://')
