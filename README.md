@@ -1,4 +1,4 @@
-# screenshotmonitor.com Calculator
+# screenshotmonitor.com Helper
 
 This is a cross-platform browser extension/addon to help SSM users have a strategy and track daily target time.
 
