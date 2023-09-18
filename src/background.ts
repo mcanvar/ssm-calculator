@@ -27,9 +27,7 @@ const fetchSsmData = async (): Promise<void> => {
 
   await browser.storage.local.set({
     ssmClient: content.charts.clients[0],
-    ssmTimeline: content.charts.timeline,
-    ssmHours: 160,
-    ssmWeek: 'weekdays'
+    ssmTimeline: content.charts.timeline
   })
 }
 
