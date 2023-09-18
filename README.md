@@ -1,8 +1,9 @@
 # screenshotmonitor.com Helper
 
-This is a cross-platform browser extension/addon to help SSM users have a strategy and track daily target time.
+This is a cross-platform browser extension/addon to help SSM users have a strategy and track targeted daily time.
 
 ![build](https://github.com/mcanvar/react-ts-starter-for-extensions/workflows/build/badge.svg)
+
 
 ## Prerequisites
 
