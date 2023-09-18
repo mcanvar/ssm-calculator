@@ -1,26 +1,8 @@
-# React TS starter for extensions
+# screenshotmonitor.com Calculator
 
-**A Cross-platform SSM Remaining time calculator.**
+This is a cross-platform browser extension/addon to help SSM users have a strategy and track daily target time.
 
 ![build](https://github.com/mcanvar/react-ts-starter-for-extensions/workflows/build/badge.svg)
-
-## Description
-
-This template is prepared for making cross-platform extension
-development in a single React Project with ease. It is also using a browser
-polyfill to match the API codebase and use them as Promises. During the
-development you can build your extension automatically via WebPack and
-thanks to `web-ext` it can reload it by watching the changes.
-
-## Why?
-
-There are a couple of problems when we decide to develop an extension for the most common browsers:
-
-- We cannot use Manifest V3 yet in Firefox except by turning on the developer preview
-  manually. [see here](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/).
-- All the Chrome APIs do not yet support Promise-based approaches.
-- During the development, we need to reload extension every time we update the codes.
-- Packing the bundles and getting the extension ready for publishing can be time-consuming.
 
 ## Prerequisites
 
@@ -132,12 +114,6 @@ You might want to check out `web-ext` CLI documentation in order to experience
 further settings. You can run the extension with any version of browsers,
 or passing different folder setups. You can even test Manifest V3 on Firefox by
 passing `firefoxPreview`option with`'mv3'` value on webpack config.
-
-## Big thanks
-
-- For inspiring me, [@chibat](https://github.com/chibat/chrome-extension-typescript-starter)
-- For making this possible via amazing tools, Mozilla's Teams and Contributors
-- For automatizing, WebPack
 
 ## Contribution
 
