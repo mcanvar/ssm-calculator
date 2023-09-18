@@ -1,6 +1,6 @@
 # React TS starter for extensions
 
-**A Cross-platform React TS starter for browser extensions.**
+**A Cross-platform SSM Remaining time calculator.**
 
 ![build](https://github.com/mcanvar/react-ts-starter-for-extensions/workflows/build/badge.svg)
 

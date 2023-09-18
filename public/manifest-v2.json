@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "React TS starter for browser extensions",
+  "name": "SSM Remaining time calculator",
   "description": "Chrome Extension, TypeScript, React, Cross-platform",
   "version": "1.0.0",
 
@@ -20,15 +20,5 @@
     "default_popup": "popup.html"
   },
 
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "js": ["js/vendor.js", "js/content_script.js"]
-    }
-  ],
-
-  "permissions": [
-    "storage",
-    "tabs"
-  ]
+  "permissions": ["https://screenshotmonitor.com/*", "storage", "tabs"]
 }
