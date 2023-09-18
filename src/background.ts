@@ -12,7 +12,6 @@ const fetchSsmData = async (): Promise<void> => {
 
   const { ssmToken: token } = await browser.storage.local.get(['ssmToken'])
 
-  console.log(token)
   if (token == '') return
 
   const rawResponse = await fetch('https://screenshotmonitor.com/api/v2/GetReport', {
