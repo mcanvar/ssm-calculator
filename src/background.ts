@@ -38,7 +38,7 @@ const getBadgeText = async (): Promise<string> => {
   const today = new Date()
   const yyyy = today.getFullYear()
   const m = today.getMonth() + 1
-  const d = today.getDate() - 3
+  const d = today.getDate()
   const { ssmTimeline: timeline } = await browser.storage.local.get(['ssmTimeline'])
   const { ssmClient: client } = await browser.storage.local.get(['ssmClient'])
   const { ssmHours: monthlyHoursTarget } = await browser.storage.local.get(['ssmHours'])
