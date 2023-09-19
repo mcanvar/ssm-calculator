@@ -1,7 +1,7 @@
 {
   "name": "react-ts-starter-for-extensions",
-  "version": "1.0.0",
-  "description": "Cross-platform SSM Remaining time calculator",
+  "version": "1.0.1",
+  "description": "Cross-platform SSM Helper",
   "type": "module",
   "author": "mevlutcanvar@gmail.com",
   "license": "MIT",
