@@ -55,7 +55,7 @@ const Popup = () => {
         {token.length == 0 && (
           <div
             role="alert"
-            className="flex-center justify-center items-center flex max-w bg-rose-800 text-white rounded-md shadow-sm mt-4"
+            className="flex-center p-2 justify-center items-center flex max-w bg-rose-800 text-white rounded-md shadow-sm mt-4"
           >
             <svg
               className="h-6 w-6 flex-none fill-sky-100 stroke-white stroke-2"
@@ -66,51 +66,20 @@ const Popup = () => {
                 strokeLinecap="round"
                 fill="none"
                 strokeLinejoin="round"
-                d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
               />
             </svg>
-            <p className="flex p-4 text-xs">We need your API key to start calculating.</p>
+            <p className="flex pl-2 text-xs">
+              You need to setup your API key to start calculating.
+            </p>
           </div>
         )}
 
         <div className="divide-y divide-gray-300/50">
-          <div className="space-y-6 py-8 text-base leading-7 text-gray-600">
-            <ul className="space-y-4">
-              <li className="flex items-center">
-                <svg
-                  className="h-6 w-6 flex-none fill-sky-100 stroke-[#79975c] stroke-2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path
-                    strokeLinecap="round"
-                    fill="none"
-                    strokeLinejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-
-                <div className="flex flex-col">
-                  <p className="ml-4">
-                    This month total:
-                    <code className="text-sm font-bold text-gray-900">
-                      {' '}
-                      {totalHoursAndMins(client.Duration)}
-                    </code>
-                  </p>
-
-                  <p className="ml-4">
-                    Target:&nbsp;
-                    <code className="text-sm font-bold text-gray-900">
-                      {totalHoursAndMins(hours * 60)}
-                    </code>
-                    ,&nbsp;
-                    <code className="text-sm font-bold text-gray-900">{week}</code>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div className="flex-center flex">
+          {token.length > 0 && (
+            <div className="space-y-6 py-8 text-base leading-7 text-gray-600">
+              <ul className="space-y-4">
+                <li className="flex items-center">
                   <svg
                     className="h-6 w-6 flex-none fill-sky-100 stroke-[#79975c] stroke-2"
                     strokeLinecap="round"
@@ -120,24 +89,59 @@ const Popup = () => {
                       strokeLinecap="round"
                       fill="none"
                       strokeLinejoin="round"
-                      d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <p className="ml-4 mb-2">
-                    For the rest of the month if you target to work&nbsp;
-                    <code className="text-sm font-bold text-gray-900">
-                      {totalHoursAndMins(hours * 60)}
-                    </code>
-                    ,&nbsp; you should work daily at least&nbsp;
-                    <code className="text-sm font-bold text-gray-900">
-                      {totalHoursAndMins(toMake[hours])}
-                    </code>
-                    .
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+
+                  <div className="flex flex-col">
+                    <p className="ml-4">
+                      This month total:
+                      <code className="text-sm font-bold text-gray-900">
+                        {' '}
+                        {totalHoursAndMins(client.Duration)}
+                      </code>
+                    </p>
+
+                    <p className="ml-4">
+                      Target:&nbsp;
+                      <code className="text-sm font-bold text-gray-900">
+                        {totalHoursAndMins(hours * 60)}
+                      </code>
+                      ,&nbsp;
+                      <code className="text-sm font-bold text-gray-900">{week}</code>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex-center flex">
+                    <svg
+                      className="h-6 w-6 flex-none fill-sky-100 stroke-[#79975c] stroke-2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        fill="none"
+                        strokeLinejoin="round"
+                        d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
+                      />
+                    </svg>
+                    <p className="ml-4 mb-2">
+                      For the rest of the month if you target to work&nbsp;
+                      <code className="text-sm font-bold text-gray-900">
+                        {totalHoursAndMins(hours * 60)}
+                      </code>
+                      ,&nbsp; you should work daily at least&nbsp;
+                      <code className="text-sm font-bold text-gray-900">
+                        {totalHoursAndMins(toMake[hours])}
+                      </code>
+                      .
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          )}
           <div className="pt-8 text-base font-semibold leading-7">
             <p className="text-gray-900">Want to visit SSM?</p>
             <p>
