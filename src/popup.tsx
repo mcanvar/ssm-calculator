@@ -10,6 +10,7 @@ import {
 } from './utils/date'
 
 const Popup = () => {
+  const [refreshing, setRefreshing] = useState<boolean>(false)
   const [token, setToken] = useState<string>('')
   const [client, setClient] = useState({ Duration: 0 })
   const [hours, setHours] = useState<number>(170)
@@ -23,6 +24,14 @@ const Popup = () => {
     else if (week == 'weekdaysAndSaturday')
       return (hours * 60 - client.Duration) / weekDaysAndSaturdayCount
     else return (hours * 60 - client.Duration) / allDaysCount
+  }
+
+  const handleRefreshing = () => {
+    setRefreshing(true)
+
+    browser.storage.local.get(['ssmClient']).then(({ ssmClient }) => setClient(ssmClient))
+
+    setTimeout(() => setRefreshing(false), 500)
   }
 
   useEffect(() => {
@@ -48,9 +57,34 @@ const Popup = () => {
   const toMake160hours = useMemo(() => handleXhours(160, client as { Duration: number }), [client])
 
   return (
-    <div className="relative w-96 max-w-lg bg-gray-100 px-5 py-6 ring-1 ring-gray-900/5 mx-0">
+    <div className="relative w-96 max-w-lg bg-gray-100 px-5 py-6 ring-1 ring-gray-900/5 mx-0 cursor-default">
       <div className="mx-auto max-w-md">
-        <h1 className="text-2xl font-extrabold text-[#79975c]">SSM Monthly Work Summary</h1>
+        <div className="flex content-center justify-between">
+          <h1 className="text-xl font-extrabold text-[#79975c]">My SSM Strategy</h1>
+
+          <button
+            className={`${
+              refreshing && 'animate-spin'
+            } text-cyan-800 font-bold py-1 px-4 rounded-full`}
+            disabled={refreshing}
+            onClick={() => handleRefreshing()}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+          </button>
+        </div>
 
         {token.length == 0 && (
           <div
